@@ -1,3 +1,4 @@
+import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Switch } from 'react-native';
 
@@ -39,6 +40,8 @@ const AlarmScreen = () => {
     ));
   };
 
+  const router = useRouter();
+  
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -89,7 +92,7 @@ const AlarmScreen = () => {
         ))}
       </ScrollView>
 
-      <TouchableOpacity style={styles.fab}>
+      <TouchableOpacity style={styles.fab} onPress={() => router.push('/add-alarm')}>
         <Text style={styles.fabIcon}>+</Text>
       </TouchableOpacity>
     </View>
